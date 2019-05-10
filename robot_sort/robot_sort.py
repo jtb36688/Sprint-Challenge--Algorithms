@@ -96,7 +96,11 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
+        if self.can_move_right:
+            self.set_light_on
+        while self.light_is_on:
+            self.set_light_off
+
         pass
 
 
@@ -110,3 +114,21 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+    # The robot uses time points by moving, and swapping items.
+    # Therefore, robot must pass through the array, and sort it using the
+    # least amount of movements and swaps as possible. Additionally, the robot can only store
+    # a boolean (its light) in memory - and it can only compare one item to the one in front of it.
+    # Therefore, I've decided to use a bubble sort method to accomplish this task, which occurs in a while loop.
+    # At the very start, the light is turned on if can_move_right is true, to initiate the sorting.
+    # Before each time the robot passes over the list, the light is turned off, and if any swaps are made, the light is turned on.
+    # Upon realizing it has reached the last index, it checks if its light is on. If it is, it turns it off and repeats the loop.
+    # If not, the items are sorted fully and the job is done.
+    # The can_move_left and can_move_right methods must be used before every movement to determine if robot has reached the first/last index.
+    # If the robot has reached the last last index and the light is on, the for loop is completed and it returns to the first index, checking can_move_left each time.
+    # Sorting - The robot starts each for loop upon the 0 index.
+    # If it is a multi-indexed list, the robot picks up the item at 0 index, moves right, and then compares the items.
+    # If the held item is greater than the approached item, robot swaps the items, then moves back left, places the approach item in the previous item's placed.
+    # If the held item is less then or equal to the approached item, the robot moves left, and replaces the held item.
+    # The robot then moves to the right again, and repeats the loop
+    # If a swap occured, the light turns on until the items are all passed over.
