@@ -1,7 +1,18 @@
 Exercise 1)
 
     A)
-    
+    O(n*2)
+    the number of iterations of the while loop is dependent on the value of n and increases exponentially for increasing n.
+
+    b)
+    n*5
+    each of the nested loops must iterate an additional time for each index in n, so they each stack exponentially
+
+    c) 
+    O(n)
+    assuming bunnies >= 0, the notation is O(n) If bunnies < 0 this function results in an infinite loop.
+
+
 
 Exercise 2)
 
